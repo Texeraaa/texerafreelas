@@ -29,8 +29,8 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <a href="#home" className="text-xl font-bold bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
-              Pedro H. Teixeira
+            <a href="#home" className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+              Pedro H. Texeira
             </a>
           </div>
 
