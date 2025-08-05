@@ -8,21 +8,52 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: 'oklch(1 0 0)',
-        foreground: 'oklch(0.145 0 0)',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
+        },
         primary: {
-          DEFAULT: 'oklch(0.693 0.204 282.5)',
-          foreground: 'oklch(1 0 0)',
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
         },
         muted: {
-          DEFAULT: 'oklch(0.97 0 0)',
-          foreground: 'oklch(0.556 0 0)',
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
         },
-        border: 'oklch(0.922 0 0)',
-        ring: 'oklch(0.693 0.204 282.5)',
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        'card-text': 'hsl(var(--card-text))',
+        'card-text-muted': 'hsl(var(--card-text-muted))',
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(135deg, oklch(0.693 0.204 282.5), oklch(0.685 0.2 300))',
+        'gradient-primary': 'var(--gradient-primary)',
+        'gradient-hero': 'var(--gradient-hero)',
+      },
+      boxShadow: {
+        'elegant': 'var(--shadow-elegant)',
+        'glow': 'var(--shadow-glow)',
+      },
+      transitionDuration: {
+        'smooth': 'var(--transition-smooth)',
       },
     },
   },
