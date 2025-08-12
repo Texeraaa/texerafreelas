@@ -2,6 +2,7 @@
 import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from './ui/button';
 import TypingAnimation from './ui/TypingAnimation';
+import Link from 'next/link';
 
 export default function Hero() {
   return (
@@ -31,7 +32,7 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" className="shadow-elegant">
-              Contratar Agora
+              <Link href="#contact">Contratar Agora</Link>
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button variant="outline" size="lg">

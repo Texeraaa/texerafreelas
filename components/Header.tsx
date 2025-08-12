@@ -1,15 +1,15 @@
 'use client';
 
-import { Download, Menu, X } from "lucide-react";
-import { Button } from "./ui/button";
-import { useState } from "react";
-import ThemeToggle from "./ThemeToggle";
+import { Download, Menu, X } from 'lucide-react';
+import { Button } from './ui/button';
+import { useState } from 'react';
+import ThemeToggle from './ThemeToggle';
+import Link from 'next/link';
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -18,18 +18,21 @@ export default function Header() {
   };
 
   const navigation = [
-    { name: "Início", href: "#home" },
-    { name: "Sobre", href: "#about" },
-    { name: "Serviços", href: "#services" },
-    { name: "Portfólio", href: "#portfolio" },
-    { name: "Contato", href: "#contact" }
+    { name: 'Início', href: '#home' },
+    { name: 'Sobre', href: '#about' },
+    { name: 'Serviços', href: '#services' },
+    { name: 'Portfólio', href: '#portfolio' },
+    { name: 'Contato', href: '#contact' },
   ];
   return (
-   <header className="fixed top-0 w-full glass-header z-50">
+    <header className="fixed top-0 w-full glass-header z-50">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <a href="#home" className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+            <a
+              href="#home"
+              className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent"
+            >
               Pedro H. Texeira
             </a>
           </div>
@@ -52,15 +55,13 @@ export default function Header() {
               <Download className="mr-2 h-4 w-4" />
               Download CV
             </Button>
-            <Button size="sm">Contratar</Button>
+            <Button size="sm">
+              <Link href="#contact">Contratar Agora</Link>
+            </Button>
           </div>
 
           <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
+            <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
@@ -86,9 +87,7 @@ export default function Header() {
                   <Download className="mr-2 h-4 w-4" />
                   Download CV
                 </Button>
-                <Button size="sm">
-                  Contratar
-                </Button>
+                <Button size="sm">Contratar</Button>
               </div>
             </div>
           </div>
