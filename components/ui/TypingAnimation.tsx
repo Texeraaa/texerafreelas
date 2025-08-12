@@ -23,7 +23,9 @@ type Segmenter = { segment: (input: string) => Iterable<{ segment: string }> };
 function splitGraphemes(input: string): string[] {
   try {
     const SegmenterCtor = (
-      Intl as typeof Intl & { Segmenter?: { new (lang: string, opts: any): Segmenter } }
+      Intl as typeof Intl & {
+        Segmenter?: { new (lang: string, opts: Record<string, unknown>): Segmenter };
+      }
     ).Segmenter;
     if (typeof SegmenterCtor === 'function') {
       const seg = new SegmenterCtor('pt', { granularity: 'grapheme' });

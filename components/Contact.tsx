@@ -81,7 +81,7 @@ export default function Contact() {
       } else {
         setError(data.error || 'Erro ao enviar.');
       }
-    } catch (err) {
+    } catch {
       setError('Erro inesperado.');
     } finally {
       setLoading(false);
