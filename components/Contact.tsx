@@ -1,3 +1,6 @@
+'use client';
+
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -32,6 +35,58 @@ export default function Contact() {
       link: '#',
     },
   ];
+
+  // ...existing code...
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState<string | null>(null);
+  const formRef = React.useRef<HTMLFormElement>(null);
+
+  // Substitua pelo seu número do WhatsApp
+  const whatsappNumber = '5519997798101';
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setError(null);
+    setLoading(true);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const subject = formData.get('subject') as string;
+    const message = formData.get('message') as string;
+    // Captura page e utm da URL
+    const page = window.location.pathname;
+    const params = new URLSearchParams(window.location.search);
+    const utm: Record<string, string> = {};
+    for (const key of params.keys()) {
+      if (key.startsWith('utm_')) {
+        utm[key] = params.get(key) || '';
+      }
+    }
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, subject, message, page, utm }),
+      });
+      const data = await res.json();
+      if (data.ok) {
+        // Mensagem pré-formatada para WhatsApp
+        const waMsg = encodeURIComponent(
+          `Olá, meu nome é ${name}. Assunto: ${subject}. Mensagem: ${message.substring(0, 60)}...`
+        );
+        window.open(`https://wa.me/${whatsappNumber}?text=${waMsg}`, '_blank');
+        form.reset();
+      } else {
+        setError(data.error || 'Erro ao enviar.');
+      }
+    } catch (err) {
+      setError('Erro inesperado.');
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     <section id="contact" className="py-20 px-4 bg-muted/30">
@@ -83,34 +138,62 @@ export default function Contact() {
 
           <Card className="glass-card">
             <CardContent className="p-8">
-              <form className="space-y-6">
+              <form className="space-y-6" ref={formRef} onSubmit={handleSubmit}>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Nome</Label>
-                    <Input id="name" placeholder="Seu nome completo" />
+                    <Input
+                      id="name"
+                      name="name"
+                      placeholder="Seu nome completo"
+                      required
+                      minLength={2}
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="seu@email.com" />
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="seu@email.com"
+                      required
+                    />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="subject">Assunto</Label>
-                  <Input id="subject" placeholder="Sobre o que você gostaria de falar?" />
+                  <Input
+                    id="subject"
+                    name="subject"
+                    placeholder="Sobre o que você gostaria de falar?"
+                    required
+                    minLength={3}
+                  />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="message">Mensagem</Label>
                   <Textarea
                     id="message"
+                    name="message"
                     placeholder="Conte-me mais sobre seu projeto..."
                     rows={5}
+                    required
+                    minLength={10}
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full shadow-elegant">
-                  Enviar Mensagem
+                {error && <div className="text-red-500 text-sm text-center">{error}</div>}
+
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full shadow-elegant"
+                  disabled={loading}
+                >
+                  {loading ? 'Enviando...' : 'Enviar Mensagem'}
                 </Button>
               </form>
             </CardContent>
