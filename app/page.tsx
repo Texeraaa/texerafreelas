@@ -1,7 +1,8 @@
 import About from '@/components/About';
 import Hero from '@/components/Hero';
-import Portifolio from '@/components/portifolio';
-import Services from '@/components/services';
+import Contact from '@/components/Contact';
+import Portifolio from '@/components/Portifolio';
+import Services from '@/components/Services';
 
 export default function Home() {
   return (
@@ -18,6 +19,9 @@ export default function Home() {
         </section>
         <section id="portfolio">
           <Portifolio />
+        </section>
+        <section id="contact">
+          <Contact />
         </section>
       </main>
     </div>
