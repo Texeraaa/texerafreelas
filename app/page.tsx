@@ -1,7 +1,7 @@
 import About from '@/components/About';
 import Hero from '@/components/Hero';
-import Services from '@/components/services';
-import Portifolio from '@/components/portifolio';
+import Services from '@/components/services_temp2';
+import Portifolio from '@/components/portifolio_temp2';
 import Contact from '@/components/Contact';
 
 export default function Home() {
