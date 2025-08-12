@@ -10,7 +10,7 @@ const contactSchema = z.object({
   subject: z.string().min(3),
   message: z.string().min(10),
   page: z.string().optional(),
-  utm: z.record(z.string()).optional(),
+  utm: z.record(z.string(), z.string()).optional(),
 });
 
 const redis = Redis.fromEnv();
@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
   const parse = contactSchema.safeParse(body);
   if (!parse.success) {
     return NextResponse.json(
-      { error: 'Dados inválidos', details: parse.error.errors },
+      { error: 'Dados inválidos', details: parse.error.issues },
       { status: 400 }
     );
   }
