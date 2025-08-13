@@ -17,9 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Pedro Texeira - Desenvolvedor Full-Stack',
+  title: 'Pedro Teixeira - Desenvolvedor Full-Stack',
   description:
-    'Portfólio de Pedro Texeira, desenvolvedor Full-Stack especializado em React, Node.js e tecnologias modernas.',
+    'Portfólio de Pedro Teixeira, desenvolvedor Full-Stack especializado em React, Node.js e tecnologias modernas.',
 };
 
 export default function RootLayout({

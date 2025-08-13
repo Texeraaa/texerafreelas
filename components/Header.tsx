@@ -33,7 +33,7 @@ export default function Header() {
               href="#home"
               className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent"
             >
-              Pedro H. Texeira
+              Pedro H. Teixeira
             </a>
           </div>
 
