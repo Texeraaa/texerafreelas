@@ -1,6 +1,6 @@
 'use client';
 
-import { Download, Menu, X } from 'lucide-react';
+import { Download, Menu, X, ArrowLeft } from 'lucide-react';
 import { Button } from '../ui/button';
 import ThemeToggle from '../common/ThemeToggle';
 import Link from 'next/link';
@@ -48,7 +48,13 @@ export default function Header() {
             </Button>
           </div>
 
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-2">
+            <Button variant="outline" size="sm" asChild>
+              <Link href="/" className="flex items-center gap-1">
+                <ArrowLeft className="h-3 w-3" />
+                <span className="text-xs">Simples</span>
+              </Link>
+            </Button>
             <Button variant="ghost" size="sm" onClick={toggleMenu}>
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>

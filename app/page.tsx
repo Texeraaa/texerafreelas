@@ -10,8 +10,8 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <div className="min-h-screen">
-      {/* Botão para ir à versão técnica */}
-      <div className="fixed top-4 left-4 z-50">
+      {/* Botão para ir à versão técnica - apenas desktop */}
+      <div className="hidden md:block fixed top-4 left-4 z-50">
         <Button variant="outline" size="sm" asChild>
           <Link
             href="/professional"
