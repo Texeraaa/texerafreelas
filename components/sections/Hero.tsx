@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react';
-import { Button } from './ui/button';
-import TypingAnimation from './ui/TypingAnimation';
+import { Button } from '../ui/button';
+import TypingAnimation from '../ui/TypingAnimation';
 import Link from 'next/link';
 
 export default function Hero() {

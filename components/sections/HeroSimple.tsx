@@ -1,6 +1,6 @@
 import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
-import { Button } from './ui/button';
-import TypingAnimation from './ui/TypingAnimation';
+import { Button } from '../ui/button';
+import TypingAnimation from '../ui/TypingAnimation';
 import Link from 'next/link';
 
 export default function HeroSimple() {

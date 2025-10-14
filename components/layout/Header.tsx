@@ -1,29 +1,15 @@
 'use client';
 
 import { Download, Menu, X } from 'lucide-react';
-import { Button } from './ui/button';
-import { useState } from 'react';
-import ThemeToggle from './ThemeToggle';
+import { Button } from '../ui/button';
+import ThemeToggle from '../common/ThemeToggle';
 import Link from 'next/link';
+import { useNavigation } from '@/hooks/useNavigation';
+import { navigation, personalInfo } from '@/lib/data/constants';
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isMenuOpen, handleNavigation, toggleMenu } = useNavigation();
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
-    }
-  };
-
-  const navigation = [
-    { name: 'Início', href: '#home' },
-    { name: 'Sobre', href: '#about' },
-    { name: 'Serviços', href: '#services' },
-    { name: 'Portfólio', href: '#portfolio' },
-    { name: 'Contato', href: '#contact' },
-  ];
   return (
     <header className="fixed top-0 w-full glass-header z-50">
       <div className="max-w-6xl mx-auto px-4">
@@ -33,7 +19,7 @@ export default function Header() {
               href="#home"
               className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent"
             >
-              Pedro H. Teixeira
+              {personalInfo.name}
             </a>
           </div>
 
@@ -41,7 +27,7 @@ export default function Header() {
             {navigation.map((item) => (
               <button
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
+                onClick={() => handleNavigation(item.href)}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 {item.name}
@@ -52,7 +38,7 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-4">
             <ThemeToggle />
             <Button variant="outline" size="sm" asChild>
-              <a href="/Currículo-Pedro-Henrique-Teixeira.pdf" download>
+              <a href={personalInfo.cvPath} download>
                 <Download className="mr-2 h-4 w-4" />
                 Download CV
               </a>
@@ -63,7 +49,7 @@ export default function Header() {
           </div>
 
           <div className="md:hidden">
-            <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <Button variant="ghost" size="sm" onClick={toggleMenu}>
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
@@ -75,7 +61,7 @@ export default function Header() {
               {navigation.map((item) => (
                 <button
                   key={item.name}
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={() => handleNavigation(item.href)}
                   className="block w-full text-left px-3 py-2 text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {item.name}
@@ -86,7 +72,7 @@ export default function Header() {
                   <ThemeToggle />
                 </div>
                 <Button variant="outline" size="sm" asChild>
-                  <a href="/Currículo-Pedro-Henrique-Teixeira.pdf" download>
+                  <a href={personalInfo.cvPath} download>
                     <Download className="mr-2 h-4 w-4" />
                     Download CV
                   </a>

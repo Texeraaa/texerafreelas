@@ -1,15 +1,26 @@
-import About from '@/components/About';
-import Hero from '@/components/Hero';
-import Services from '@/components/Services';
-import Portifolio from '@/components/Portfolio';
-import Contact from '@/components/Contact';
+import About from '@/components/sections/About';
+import Hero from '@/components/sections/Hero';
+import Services from '@/components/sections/Services';
+import Portifolio from '@/components/sections/Portfolio';
+import Contact from '@/components/sections/Contact';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import { Metadata } from 'next';
+import { generatePageMetadata } from '@/lib/seo-utils';
+import Breadcrumbs from '@/components/common/Breadcrumbs';
+
+export const metadata: Metadata = generatePageMetadata({
+  page: 'professional',
+});
 
 export default function ProfessionalPage() {
   return (
     <div className="min-h-screen">
+      {/* Breadcrumbs */}
+      <div className="fixed top-20 left-4 z-40 bg-background/80 backdrop-blur-sm rounded-lg px-3">
+        <Breadcrumbs items={[{ label: 'Versão Profissional' }]} />
+      </div>
       {/* Botão para voltar à versão simplificada */}
       <div className="fixed top-4 left-4 z-50">
         <Button variant="outline" size="sm" asChild>

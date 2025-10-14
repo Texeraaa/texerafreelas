@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-import DynamicHeader from '@/components/DynamicHeader';
-import { ThemeProvider } from '@/components/theme-provider';
-import ProgressIndicator from '@/components/ProgressIndicator';
-import Footer from '@/components/Footer';
+import DynamicHeader from '@/components/layout/DynamicHeader';
+import { ThemeProvider } from '@/components/common/theme-provider';
+import ProgressIndicator from '@/components/common/ProgressIndicator';
+import Footer from '@/components/layout/Footer';
+import { generatePageMetadata } from '@/lib/seo-utils';
+import { schemaData } from '@/lib/data/seo';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -16,11 +18,10 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-export const metadata: Metadata = {
-  title: 'Pedro Teixeira - Desenvolvedor Full-Stack',
-  description:
-    'Portfólio de Pedro Teixeira, desenvolvedor Full-Stack especializado em React, Node.js e tecnologias modernas.',
-};
+export const metadata: Metadata = generatePageMetadata({
+  page: 'home',
+  version: 'simple',
+});
 
 export default function RootLayout({
   children,
@@ -28,13 +29,38 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang="pt-BR">
+      <head>
+        {/* Schema.org structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schemaData.person),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schemaData.website),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schemaData.service),
+          }}
+        />
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
+          storageKey="theme"
         >
           <ProgressIndicator />
           <DynamicHeader />

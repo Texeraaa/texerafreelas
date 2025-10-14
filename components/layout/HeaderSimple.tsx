@@ -1,9 +1,9 @@
 'use client';
 
 import { Menu, X } from 'lucide-react';
-import { Button } from './ui/button';
+import { Button } from '../ui/button';
 import { useState } from 'react';
-import ThemeToggle from './ThemeToggle';
+import ThemeToggle from '../common/ThemeToggle';
 import Link from 'next/link';
 
 export default function HeaderSimple() {

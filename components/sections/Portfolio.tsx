@@ -53,16 +53,34 @@ export default function Portifolio() {
               <div className="relative overflow-hidden">
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={`Screenshot do projeto ${project.title} - ${project.description.substring(0, 100)}...`}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                  placeholder="blur"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  quality={85}
                 />
                 <div className="absolute inset-0 glass-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Button size="sm" variant="secondary" className="h-8 w-8 p-0">
-                    <ExternalLink className="h-4 w-4" />
+                  <Button size="sm" variant="secondary" className="h-8 w-8 p-0" asChild>
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Ver projeto ${project.title} ao vivo`}
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
                   </Button>
-                  <Button size="sm" variant="secondary" className="h-8 w-8 p-0">
-                    <Github className="h-4 w-4" />
+                  <Button size="sm" variant="secondary" className="h-8 w-8 p-0" asChild>
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Ver código fonte do projeto ${project.title} no GitHub`}
+                    >
+                      <Github className="h-4 w-4" />
+                    </a>
                   </Button>
                 </div>
               </div>

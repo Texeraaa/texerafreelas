@@ -2,32 +2,10 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Eye } from 'lucide-react';
-import portfolioCybercode from '@/assets/cybercode.png';
-import portfolioHzc from '@/assets/HZC.png';
 import Image from 'next/image';
+import { projects } from '@/lib/data/projects';
 
 export default function PortfolioSimple() {
-  const projects = [
-    {
-      title: 'CyberCode - Plataforma Educativa',
-      description:
-        'Site educativo interativo para ensinar programação de forma visual e divertida. Inclui aulas organizadas por temas, demonstrações práticas e até um mini-game! Perfeito para quem quer aprender programação de forma fácil.',
-      image: portfolioCybercode,
-      technologies: ['Site Moderno', 'Design Responsivo', 'Interativo'],
-      liveUrl: 'https://cybercode-sable.vercel.app/',
-      category: 'Site Educativo',
-    },
-    {
-      title: 'HZC Skateboard - Loja Virtual',
-      description:
-        'Landing page completa para loja de skates com foco em vendas: vitrine atrativa, promoções em destaque, depoimentos de clientes, FAQ e integração com WhatsApp. Design que converte visitantes em clientes!',
-      image: portfolioHzc,
-      technologies: ['Landing Page', 'Foco em Vendas', 'WhatsApp'],
-      liveUrl: 'https://hzc-skateboard.vercel.app/index.html',
-      category: 'E-commerce',
-    },
-  ];
-
   return (
     <section id="portfolio" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
@@ -55,8 +33,12 @@ export default function PortfolioSimple() {
               <div className="relative overflow-hidden">
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={`Projeto ${project.title} - ${project.descriptionSimple?.substring(0, 100) || project.description.substring(0, 100)}...`}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                  placeholder="blur"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  quality={85}
                 />
                 <div className="absolute top-4 left-4">
                   <Badge variant="secondary" className="bg-primary/90 text-white">
@@ -65,9 +47,16 @@ export default function PortfolioSimple() {
                 </div>
                 <div className="absolute inset-0 glass-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Button size="sm" variant="secondary" className="h-8 px-3">
-                    <Eye className="h-4 w-4 mr-1" />
-                    Ver Site
+                  <Button size="sm" variant="secondary" className="h-8 px-3" asChild>
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Ver projeto ${project.title}`}
+                    >
+                      <Eye className="h-4 w-4 mr-1" />
+                      Ver Site
+                    </a>
                   </Button>
                 </div>
               </div>
