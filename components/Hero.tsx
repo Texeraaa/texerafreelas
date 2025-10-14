@@ -35,9 +35,11 @@ export default function Hero() {
               <Link href="#contact">Contratar Agora</Link>
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button variant="outline" size="lg">
-              <Download className="mr-2 h-5 w-5" />
-              Download CV
+            <Button variant="outline" size="lg" asChild>
+              <a href="/Currículo-Pedro-Henrique-Teixeira.pdf" download>
+                <Download className="mr-2 h-5 w-5" />
+                Download CV
+              </a>
             </Button>
           </div>
 

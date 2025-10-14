@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-import Header from '@/components/Header';
+import DynamicHeader from '@/components/DynamicHeader';
 import { ThemeProvider } from '@/components/theme-provider';
 import ProgressIndicator from '@/components/ProgressIndicator';
 import Footer from '@/components/Footer';
@@ -37,7 +37,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ProgressIndicator />
-          <Header />
+          <DynamicHeader />
           {children}
 
           <Footer />

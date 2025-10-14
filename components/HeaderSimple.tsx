@@ -1,12 +1,12 @@
 'use client';
 
-import { Download, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
 import { useState } from 'react';
 import ThemeToggle from './ThemeToggle';
 import Link from 'next/link';
 
-export default function Header() {
+export default function HeaderSimple() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
@@ -51,14 +51,8 @@ export default function Header() {
 
           <div className="hidden md:flex items-center space-x-4">
             <ThemeToggle />
-            <Button variant="outline" size="sm" asChild>
-              <a href="/Currículo-Pedro-Henrique-Teixeira.pdf" download>
-                <Download className="mr-2 h-4 w-4" />
-                Download CV
-              </a>
-            </Button>
             <Button size="sm">
-              <Link href="#contact">Contratar Agora</Link>
+              <Link href="#contact">Quero Meu Site</Link>
             </Button>
           </div>
 
@@ -85,13 +79,7 @@ export default function Header() {
                 <div className="flex justify-center pb-2">
                   <ThemeToggle />
                 </div>
-                <Button variant="outline" size="sm" asChild>
-                  <a href="/Currículo-Pedro-Henrique-Teixeira.pdf" download>
-                    <Download className="mr-2 h-4 w-4" />
-                    Download CV
-                  </a>
-                </Button>
-                <Button size="sm">Contratar</Button>
+                <Button size="sm">Quero Meu Site</Button>
               </div>
             </div>
           </div>
