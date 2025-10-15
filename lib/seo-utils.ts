@@ -27,7 +27,7 @@ export function generatePageMetadata({ page, version }: GenerateMetadataProps): 
       address: false,
       telephone: false,
     },
-    metadataBase: new URL('https://pedroteixeira.dev'),
+    metadataBase: new URL('https://pedroteixeira.vercel.app/'),
     alternates: {
       canonical: data.canonical || '/',
     },
@@ -52,7 +52,7 @@ export function generatePageMetadata({ page, version }: GenerateMetadataProps): 
       title: data.twitter.title,
       description: data.twitter.description,
       images: [data.twitter.image],
-      creator: '@pedroteixeira',
+      creator: '@texeradev',
     },
     robots: {
       index: true,

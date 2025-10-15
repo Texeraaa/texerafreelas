@@ -40,7 +40,7 @@ export const seoData = {
         description:
           'Transformo sua ideia em um site moderno e funcional. Sites que vendem, impressionam e fazem você se destacar.',
         image: '/og-image-simple.jpg',
-        url: 'https://pedroteixeira.dev',
+        url: 'https://pedroteixeira.vercel.app/',
         type: 'website',
       },
       twitter: {
@@ -71,7 +71,7 @@ export const seoData = {
         description:
           'Especializado em React, Node.js e tecnologias modernas. Soluções completas do frontend ao backend.',
         image: '/og-image-technical.jpg',
-        url: 'https://pedroteixeira.dev',
+        url: 'https://pedroteixeira.vercel.app/',
         type: 'website',
       },
       twitter: {
@@ -83,32 +83,38 @@ export const seoData = {
     },
   },
   professional: {
-    title: 'Pedro Teixeira - Portfolio Técnico | Desenvolvedor Full-Stack',
+    title: 'Pedro Teixeira - Desenvolvedor Full-Stack | Disponível para Contratação',
     description:
-      'Portfolio técnico completo com projetos em React, Node.js, TypeScript. Experiência em desenvolvimento de aplicações web escaláveis.',
+      'Desenvolvedor Full-Stack com 2+ anos de experiência em React, Node.js e TypeScript. Buscando novas oportunidades CLT/PJ. Disponível para trabalho remoto, híbrido ou presencial em São Paulo.',
     keywords: [
-      'portfolio desenvolvedor',
-      'projetos react',
-      'desenvolvedor senior',
-      'typescript projects',
-      'full-stack portfolio',
-      'web development',
-      'software engineer',
+      'desenvolvedor full-stack vaga',
+      'react developer contratação',
+      'nodejs developer disponível',
+      'typescript developer',
+      'desenvolvedor front-end',
+      'desenvolvedor back-end',
+      'vaga desenvolvedor',
+      'contratação desenvolvedor',
+      'developer jobs',
+      'trabalho remoto desenvolvedor',
+      'desenvolvedor são paulo',
     ],
     openGraph: {
-      title: 'Pedro Teixeira - Portfolio Técnico',
-      description: 'Portfolio completo com projetos em React, Node.js, TypeScript e mais.',
+      title: 'Pedro Teixeira - Desenvolvedor Full-Stack Disponível',
+      description:
+        'Desenvolvedor com 2+ anos de experiência. React, Node.js, TypeScript. Disponível para CLT/PJ.',
       image: '/og-image-portfolio.jpg',
-      url: 'https://pedroteixeira.dev/professional',
+      url: 'https://pedroteixeira.vercel.app/professional',
       type: 'profile',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Pedro Teixeira - Portfolio Técnico',
-      description: 'Projetos em React, Node.js, TypeScript e tecnologias modernas.',
+      title: 'Pedro Teixeira - Desenvolvedor Full-Stack',
+      description:
+        '2+ anos de experiência | React, Node.js, TypeScript | Disponível para contratação',
       image: '/og-image-portfolio.jpg',
     },
-    canonical: 'https://pedroteixeira.dev/professional',
+    canonical: 'https://pedroteixeira.vercel.app/professional',
   },
 };
 
@@ -119,17 +125,18 @@ export const schemaData = {
     '@type': 'Person',
     name: 'Pedro Henrique Teixeira',
     jobTitle: 'Desenvolvedor Full-Stack',
-    description: 'Desenvolvedor especializado em React, Node.js e tecnologias web modernas',
-    url: 'https://pedroteixeira.dev',
-    image: 'https://pedroteixeira.dev/profile-image.jpg',
+    description:
+      'Desenvolvedor especializado em React, Node.js e tecnologias web modernas. Disponível para contratação CLT/PJ.',
+    url: 'https://pedroteixeira.vercel.app',
+    image: 'https://pedroteixeira.vercel.app/profile-image.jpg',
     sameAs: [
       'https://github.com/Texeraaa',
-      'https://linkedin.com/in/pedro-teixeira',
-      'https://twitter.com/pedroteixeira',
+      'https://x.com/texeradev',
+      'https://www.linkedin.com/in/pedrohteixeira17/',
     ],
     worksFor: {
       '@type': 'Organization',
-      name: 'Freelancer',
+      name: 'Disponível para Contratação',
     },
     knowsAbout: [
       'React',
@@ -140,13 +147,23 @@ export const schemaData = {
       'MongoDB',
       'AWS',
       'Docker',
+      'Desenvolvimento Full-Stack',
+      'Frontend Development',
+      'Backend Development',
     ],
+    seeks: {
+      '@type': 'JobPosting',
+      title: 'Desenvolvedor Full-Stack',
+      description: 'Buscando oportunidades como desenvolvedor full-stack em empresas inovadoras',
+      employmentType: ['FULL_TIME', 'CONTRACTOR'],
+      jobLocationType: ['TELECOMMUTE', 'HYBRID'],
+    },
   },
   website: {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Pedro Teixeira - Desenvolvedor Web',
-    url: 'https://pedroteixeira.dev',
+    url: 'https://pedroteixeira.vercel.app/',
     description: 'Portfolio e serviços de desenvolvimento web profissional',
     author: {
       '@type': 'Person',
@@ -154,7 +171,7 @@ export const schemaData = {
     },
     potentialAction: {
       '@type': 'SearchAction',
-      target: 'https://pedroteixeira.dev/search?q={search_term_string}',
+      target: 'https://pedroteixeira.vercel.app/search?q={search_term_string}',
       'query-input': 'required name=search_term_string',
     },
   },

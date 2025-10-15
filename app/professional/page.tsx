@@ -1,12 +1,12 @@
-import About from '@/components/sections/About';
-import Hero from '@/components/sections/Hero';
-import Services from '@/components/sections/Services';
-import Portifolio from '@/components/sections/Portfolio';
-import Contact from '@/components/sections/Contact';
+import HeroProfessional from '@/components/sections/HeroProfessional';
+import AboutProfessional from '@/components/sections/AboutProfessional';
+import ServicesProfessional from '@/components/sections/ServicesProfessional';
+import PortfolioProfessional from '@/components/sections/PortfolioProfessional';
+import ContactProfessional from '@/components/sections/ContactProfessional';
 import { Metadata } from 'next';
 import { generatePageMetadata } from '@/lib/seo-utils';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Building2 } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata: Metadata = generatePageMetadata({
@@ -18,7 +18,7 @@ export default function ProfessionalPage() {
     <div className="min-h-screen">
       {/* Botão para voltar à versão simplificada - apenas desktop */}
       <div className="hidden md:block fixed top-4 left-4 z-50">
-        <Button variant="outline" size="sm" asChild>
+        <Button variant="outline" size="sm" className="shadow-lg" asChild>
           <Link href="/" className="flex items-center gap-2">
             <ArrowLeft className="h-4 w-4" />
             Versão Simplificada
@@ -28,26 +28,27 @@ export default function ProfessionalPage() {
 
       {/* Badge indicando versão profissional - apenas desktop */}
       <div className="hidden md:block fixed top-4 right-4 z-50">
-        <div className="bg-primary/10 border border-primary/20 rounded-full px-3 py-1 text-xs font-medium text-primary">
-          Versão Profissional
+        <div className="bg-gradient-primary text-white rounded-full px-4 py-2 text-xs font-semibold shadow-lg flex items-center gap-2">
+          <Building2 className="h-4 w-4" />
+          Portfólio Corporativo
         </div>
       </div>
 
       <main role="main">
         <section id="home" aria-label="Apresentação profissional">
-          <Hero />
+          <HeroProfessional />
         </section>
         <section id="about" aria-label="Experiência e habilidades técnicas">
-          <About />
+          <AboutProfessional />
         </section>
-        <section id="services" aria-label="Serviços de desenvolvimento">
-          <Services />
+        <section id="services" aria-label="Serviços de desenvolvimento full-stack">
+          <ServicesProfessional />
         </section>
         <section id="portfolio" aria-label="Portfolio de projetos técnicos">
-          <Portifolio />
+          <PortfolioProfessional />
         </section>
-        <section id="contact" aria-label="Formulário de contato">
-          <Contact />
+        <section id="contact" aria-label="Formulário de contato profissional">
+          <ContactProfessional />
         </section>
       </main>
     </div>

@@ -31,6 +31,12 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
+        {/* Google Site Verification */}
+        <meta
+          name="google-site-verification"
+          content="FJbn9LwbdcqGGOn9LXrDDylzD7v4ndnb3EgqdT0eAg4"
+        />
+
         {/* Schema.org structured data */}
         <script
           type="application/ld+json"
