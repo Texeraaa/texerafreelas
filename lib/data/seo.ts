@@ -39,7 +39,7 @@ export const seoData = {
         title: 'Pedro Teixeira - Criador de Sites Profissionais',
         description:
           'Transformo sua ideia em um site moderno e funcional. Sites que vendem, impressionam e fazem você se destacar.',
-        image: '/og-image-simple.jpg',
+        image: '/og-image-simple.png',
         url: 'https://pedroteixeira.vercel.app/',
         type: 'website',
       },
@@ -47,7 +47,7 @@ export const seoData = {
         card: 'summary_large_image',
         title: 'Pedro Teixeira - Criador de Sites Profissionais',
         description: 'Sites que vendem, impressionam e fazem você se destacar da concorrência.',
-        image: '/og-image-simple.jpg',
+        image: '/og-image-simple.png',
       },
     },
     technical: {
@@ -70,7 +70,7 @@ export const seoData = {
         title: 'Pedro Teixeira - Desenvolvedor Full-Stack',
         description:
           'Especializado em React, Node.js e tecnologias modernas. Soluções completas do frontend ao backend.',
-        image: '/og-image-technical.jpg',
+        image: '/og-image-technical.png',
         url: 'https://pedroteixeira.vercel.app/',
         type: 'website',
       },
@@ -78,7 +78,7 @@ export const seoData = {
         card: 'summary_large_image',
         title: 'Pedro Teixeira - Desenvolvedor Full-Stack',
         description: 'React, Node.js e tecnologias modernas. Soluções completas para seu projeto.',
-        image: '/og-image-technical.jpg',
+        image: '/og-image-technical.png',
       },
     },
   },
@@ -103,7 +103,7 @@ export const seoData = {
       title: 'Pedro Teixeira - Desenvolvedor Full-Stack Disponível',
       description:
         'Desenvolvedor com 2+ anos de experiência. React, Node.js, TypeScript. Disponível para CLT/PJ.',
-      image: '/og-image-portfolio.jpg',
+      image: '/og-image-technical.png',
       url: 'https://pedroteixeira.vercel.app/professional',
       type: 'profile',
     },
@@ -112,7 +112,7 @@ export const seoData = {
       title: 'Pedro Teixeira - Desenvolvedor Full-Stack',
       description:
         '2+ anos de experiência | React, Node.js, TypeScript | Disponível para contratação',
-      image: '/og-image-portfolio.jpg',
+      image: '/og-image-technical.png',
     },
     canonical: 'https://pedroteixeira.vercel.app/professional',
   },
