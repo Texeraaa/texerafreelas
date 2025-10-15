@@ -10,7 +10,9 @@ export default function HeaderSimple() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
+    // Remove o # se existir
+    const id = sectionId.replace('#', '');
+    const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setIsMenuOpen(false);
@@ -18,11 +20,11 @@ export default function HeaderSimple() {
   };
 
   const navigation = [
-    { name: 'Início', href: '#home' },
-    { name: 'Sobre', href: '#about' },
-    { name: 'Serviços', href: '#services' },
-    { name: 'Portfólio', href: '#portfolio' },
-    { name: 'Contato', href: '#contact' },
+    { name: 'Início', href: 'home' },
+    { name: 'Sobre', href: 'about' },
+    { name: 'Serviços', href: 'services' },
+    { name: 'Portfólio', href: 'portfolio' },
+    { name: 'Contato', href: 'contact' },
   ];
   return (
     <header className="fixed top-0 w-full glass-header z-50">
@@ -51,8 +53,8 @@ export default function HeaderSimple() {
 
           <div className="hidden md:flex items-center space-x-4">
             <ThemeToggle />
-            <Button size="sm">
-              <Link href="#contact">Quero Meu Site</Link>
+            <Button size="sm" onClick={() => scrollToSection('contact')}>
+              Quero Meu Site
             </Button>
           </div>
 
@@ -85,7 +87,9 @@ export default function HeaderSimple() {
                 <div className="flex justify-center pb-2">
                   <ThemeToggle />
                 </div>
-                <Button size="sm">Quero Meu Site</Button>
+                <Button size="sm" onClick={() => scrollToSection('contact')}>
+                  Quero Meu Site
+                </Button>
               </div>
             </div>
           </div>

@@ -43,8 +43,8 @@ export default function Header() {
                 Download CV
               </a>
             </Button>
-            <Button size="sm">
-              <Link href="#contact">Contratar Agora</Link>
+            <Button size="sm" onClick={() => handleNavigation('contact')}>
+              Contratar Agora
             </Button>
           </div>
 
@@ -83,7 +83,9 @@ export default function Header() {
                     Download CV
                   </a>
                 </Button>
-                <Button size="sm">Contratar</Button>
+                <Button size="sm" onClick={() => handleNavigation('contact')}>
+                  Contratar
+                </Button>
               </div>
             </div>
           </div>

@@ -33,20 +33,20 @@ export default function ProfessionalPage() {
         </div>
       </div>
 
-      <main>
-        <section id="home">
+      <main role="main">
+        <section id="home" aria-label="Apresentação profissional">
           <Hero />
         </section>
-        <section id="about">
+        <section id="about" aria-label="Experiência e habilidades técnicas">
           <About />
         </section>
-        <section id="services">
+        <section id="services" aria-label="Serviços de desenvolvimento">
           <Services />
         </section>
-        <section id="portfolio">
+        <section id="portfolio" aria-label="Portfolio de projetos técnicos">
           <Portifolio />
         </section>
-        <section id="contact">
+        <section id="contact" aria-label="Formulário de contato">
           <Contact />
         </section>
       </main>

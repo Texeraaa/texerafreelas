@@ -1,10 +1,10 @@
 // Navigation data
 export const navigation = [
-  { name: 'Início', href: '#home' },
-  { name: 'Sobre', href: '#about' },
-  { name: 'Serviços', href: '#services' },
-  { name: 'Portfólio', href: '#portfolio' },
-  { name: 'Contato', href: '#contact' },
+  { name: 'Início', href: 'home' },
+  { name: 'Sobre', href: 'about' },
+  { name: 'Serviços', href: 'services' },
+  { name: 'Portfólio', href: 'portfolio' },
+  { name: 'Contato', href: 'contact' },
 ];
 
 // Personal information
