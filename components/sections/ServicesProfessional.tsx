@@ -119,7 +119,7 @@ export default function ServicesProfessional() {
                 key={index}
                 className="glass-card-light border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-elegant group"
               >
-                <CardHeader className="space-y-4">
+                <CardHeader className="space-y-4 py-6 sm:py-7 md:py-8">
                   <div className="inline-flex p-3 rounded-xl bg-gradient-primary w-fit group-hover:scale-110 transition-transform duration-300">
                     <Icon className="h-7 w-7 text-white" />
                   </div>
@@ -131,7 +131,7 @@ export default function ServicesProfessional() {
                   </Badge>
                 </CardHeader>
 
-                <CardContent className="space-y-6">
+                <CardContent className="space-y-6 pb-6 sm:pb-7 md:pb-8">
                   <p className="text-muted-foreground leading-relaxed">{service.description}</p>
 
                   <div className="space-y-3">

@@ -5,6 +5,7 @@ import { Button } from '../ui/button';
 import ThemeToggle from '../common/ThemeToggle';
 import { useNavigation } from '@/hooks/useNavigation';
 import { navigation, personalInfo } from '@/lib/data/constants';
+import Link from 'next/link';
 
 export default function HeaderProfessional() {
   const { isMenuOpen, handleNavigation, toggleMenu } = useNavigation();
@@ -14,22 +15,22 @@ export default function HeaderProfessional() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo/Name */}
-          <div className="flex items-center">
+          <div className="flex items-center flex-shrink-0">
             <button
               onClick={() => handleNavigation('home')}
-              className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:opacity-80 transition-opacity"
+              className="text-base md:text-lg lg:text-xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:opacity-80 transition-opacity whitespace-nowrap"
             >
               Pedro H. Teixeira
             </button>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1">
+          <nav className="hidden lg:flex items-center space-x-1 mx-4">
             {navigation.map((item) => (
               <button
                 key={item.name}
                 onClick={() => handleNavigation(item.href)}
-                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-all"
+                className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-all whitespace-nowrap"
               >
                 {item.name}
               </button>
@@ -37,17 +38,34 @@ export default function HeaderProfessional() {
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden md:flex items-center space-x-3">
+          <div className="hidden lg:flex items-center space-x-2 flex-shrink-0">
             <ThemeToggle />
             <Button variant="ghost" size="sm" asChild>
               <a href={personalInfo.cvPath} download className="flex items-center gap-2">
                 <FileText className="h-4 w-4" />
-                <span className="hidden lg:inline">Currículo</span>
+                <span className="hidden xl:inline">Currículo</span>
+              </a>
+            </Button>
+            <Button
+              size="sm"
+              className="shadow-sm whitespace-nowrap"
+              onClick={() => handleNavigation('contact')}
+            >
+              <Mail className="h-4 w-4 mr-2" />
+              Contato
+            </Button>
+          </div>
+
+          {/* Tablet Actions (simplified) */}
+          <div className="hidden md:flex lg:hidden items-center space-x-2 flex-shrink-0">
+            <ThemeToggle />
+            <Button variant="ghost" size="sm" asChild>
+              <a href={personalInfo.cvPath} download>
+                <FileText className="h-4 w-4" />
               </a>
             </Button>
             <Button size="sm" className="shadow-sm" onClick={() => handleNavigation('contact')}>
-              <Mail className="h-4 w-4 mr-2" />
-              Contato
+              <Mail className="h-4 w-4" />
             </Button>
           </div>
 
@@ -74,6 +92,24 @@ export default function HeaderProfessional() {
                 </button>
               ))}
               <div className="flex flex-col gap-2 pt-4 px-2">
+                <Button variant="outline" size="sm" className="w-full" asChild>
+                  <Link href="/">
+                    <svg
+                      className="mr-2 h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                      />
+                    </svg>
+                    Versão Simplificada
+                  </Link>
+                </Button>
                 <Button variant="outline" size="sm" className="w-full" asChild>
                   <a href={personalInfo.cvPath} download>
                     <Download className="mr-2 h-4 w-4" />

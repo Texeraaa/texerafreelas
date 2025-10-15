@@ -16,9 +16,9 @@ export const metadata: Metadata = generatePageMetadata({
 export default function ProfessionalPage() {
   return (
     <div className="min-h-screen">
-      {/* Botão para voltar à versão simplificada - apenas desktop */}
-      <div className="hidden md:block fixed top-4 left-4 z-50">
-        <Button variant="outline" size="sm" className="shadow-lg" asChild>
+      {/* Botão para voltar à versão simplificada - aparece abaixo do header em telas grandes */}
+      <div className="hidden lg:block fixed top-20 left-4 z-40">
+        <Button variant="outline" size="sm" className="shadow-lg backdrop-blur-sm" asChild>
           <Link href="/" className="flex items-center gap-2">
             <ArrowLeft className="h-4 w-4" />
             Versão Simplificada
@@ -26,9 +26,9 @@ export default function ProfessionalPage() {
         </Button>
       </div>
 
-      {/* Badge indicando versão profissional - apenas desktop */}
-      <div className="hidden md:block fixed top-4 right-4 z-50">
-        <div className="bg-gradient-primary text-white rounded-full px-4 py-2 text-xs font-semibold shadow-lg flex items-center gap-2">
+      {/* Badge indicando versão profissional - apenas em telas muito grandes (XL+) */}
+      <div className="hidden xl:block fixed top-20 right-4 z-40">
+        <div className="bg-gradient-primary text-white rounded-full px-4 py-2 text-xs font-semibold shadow-lg flex items-center gap-2 backdrop-blur-sm">
           <Building2 className="h-4 w-4" />
           Portfólio Corporativo
         </div>
